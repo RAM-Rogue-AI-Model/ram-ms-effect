@@ -36,6 +36,9 @@ class EffectController {
       return res.status(400).json({ error: 'Missing effect id' });
     }
     const effet = await this.service.getById(id);
+    if (!effet) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
     res.json(effet);
   }
 
