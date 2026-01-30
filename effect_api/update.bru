@@ -1,0 +1,25 @@
+meta {
+  name: update
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3003/effect/76a9279b-0d7f-4888-a0d8-63d6249187cd
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "stat_name": "PV",
+    "count": 250,
+    "modificator": "+",
+    "duration": 20
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
