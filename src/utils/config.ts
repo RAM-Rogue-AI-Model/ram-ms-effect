@@ -8,7 +8,8 @@ const config: configType = {
   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD ?? '',
   DATABASE_PORT: Number(process.env.DATABASE_PORT ?? 3303),
   DATABASE_DB_NAME: process.env.DATABASE_DB_NAME ?? 'ram-ms-effect-db',
-  INTERNAL_SECRET: process.env.INTERNAL_SECRET ?? ""
+  INTERNAL_SECRET: process.env.INTERNAL_SECRET ?? '',
+  RABBITMQ_URL: process.env.RABBITMQ_URL ?? 'amqp://guest:guest@localhost:5672',
 };
 
 export { config };
