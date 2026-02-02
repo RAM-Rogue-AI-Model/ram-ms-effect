@@ -13,11 +13,17 @@ datasource db {
   provider = "mysql"
 }
 
+enum StatName {
+  pv
+  speed
+  attack
+}
+
 model Effet {
-  id          String @id @default(uuid())
-  stat_name   String @db.VarChar(50)
+  id          String   @id @default(uuid())
+  stat_name   StatName
   count       Int
-  modificator String @db.VarChar(2)
+  modificator String   @db.VarChar(2)
   duration    Int
 
   @@index([stat_name])

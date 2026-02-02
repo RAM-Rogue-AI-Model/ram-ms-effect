@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import { EffectService } from '../services/effectService';
 import { CreateEffectInput } from '../types/effectInput';
+import { isStatName } from '../utils/typeValid';
 
 class EffectController {
   service: EffectService;
@@ -21,6 +22,9 @@ class EffectController {
         return res.status(400).json({ error: 'Missing required fields' });
       }
 
+      if (!isStatName(body.stat_name)) {
+        return res.status(400).json({ error: 'Invalid stat_name' });
+      }
       const payload: CreateEffectInput = body as CreateEffectInput;
       const effect = await this.service.create(payload);
       res.status(201).json(effect);
