@@ -28,7 +28,6 @@ services:
       - '3303:3306'
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./dataset.sql:/docker-entrypoint-initdb.d/dataset.sql:ro
 
     networks:
       - ram-shared-network
