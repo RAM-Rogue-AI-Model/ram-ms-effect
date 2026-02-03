@@ -1,0 +1,188 @@
+openapi: 3.0.3
+info:
+  title: API Effet
+  description: API RAM - effect microservice
+  version: 1.0.0
+servers:
+  - url: http://localhost:3003
+    description: Serveur local
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Effect:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "abc123"
+        stat_name:
+          type: string
+          description: Nom de la statistique
+          example: "FORCE"
+        count:
+          type: integer
+          example: 5
+        modificator:
+          type: string
+          example: "+"
+        duration:
+          type: integer
+          example: 10
+      required:
+        - id
+        - stat_name
+        - count
+        - modificator
+        - duration
+    EffectInput:
+      type: object
+      properties:
+        stat_name:
+          type: string
+          description: Nom de la statistique
+          example: "FORCE"
+        count:
+          type: integer
+          example: 5
+        modificator:
+          type: string
+          example: "+"
+        duration:
+          type: integer
+          example: 10
+      required:
+        - stat_name
+        - count
+        - modificator
+        - duration
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+paths:
+  /effect:
+    post:
+      summary: Créer un effet
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EffectInput'
+      responses:
+        '201':
+          description: Effet créé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Effect'
+        '400':
+          description: Erreur de validation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: Lister tous les effets
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Liste des effets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Effect'
+  /effect/{id}:
+    get:
+      summary: Récupérer un effet par ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Effet trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Effect'
+        '404':
+          description: Effet non trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Mettre à jour un effet
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EffectInput'
+      responses:
+        '200':
+          description: Effet mis à jour
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Effect'
+        '400':
+          description: Erreur de validation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Effet non trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Supprimer un effet
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Effet supprimé
+        '400':
+          description: Erreur de validation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Effet non trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
