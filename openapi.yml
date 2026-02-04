@@ -18,17 +18,17 @@ components:
       properties:
         id:
           type: string
-          example: "abc123"
+          example: 'abc123'
         stat_name:
           type: string
           description: Nom de la statistique
-          example: "FORCE"
+          example: 'FORCE'
         count:
           type: integer
           example: 5
         modificator:
           type: string
-          example: "+"
+          example: '+'
         duration:
           type: integer
           example: 10
@@ -44,13 +44,13 @@ components:
         stat_name:
           type: string
           description: Nom de la statistique
-          example: "FORCE"
+          example: 'FORCE'
         count:
           type: integer
           example: 5
         modificator:
           type: string
-          example: "+"
+          example: '+'
         duration:
           type: integer
           example: 10

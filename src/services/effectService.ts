@@ -24,7 +24,7 @@ class EffectService {
         'EFFECT',
         'INSERT',
         'ERROR',
-        `Erreur lors de la création de l'effet: ${error}`
+        `Erreur lors de la création de l'effet: ${String(error)}`
       );
       throw new Error("Erreur lors de la création de l'effet");
     }
@@ -45,7 +45,7 @@ class EffectService {
         'EFFECT',
         'OTHER',
         'ERROR',
-        `Erreur lors de la récupération de la liste des effets: ${error}`
+        `Erreur lors de la récupération de la liste des effets: ${String(error)}`
       );
       throw new Error('Erreur lors de la récupération de la liste des effets');
     }
@@ -64,7 +64,7 @@ class EffectService {
           'WARN',
           `Aucun effet trouvé avec l'ID: ${id}`
         );
-        throw new Error(`Aucun effet trouvé avec l'ID: ${id}`);
+        return null;
       }
       void sendLog(
         'EFFECT',
@@ -78,11 +78,9 @@ class EffectService {
         'EFFECT',
         'OTHER',
         'ERROR',
-        `Erreur lors de la récupération de l'effet avec l'ID ${id}: ${error}`
+        `Erreur lors de la récupération de l'effet avec l'ID ${id}: ${String(error)}`
       );
-      throw new Error(
-        `Erreur lors de la récupération de l'effet avec l'ID ${id}`
-      );
+      return null;
     }
   }
 
@@ -122,7 +120,7 @@ class EffectService {
         'EFFECT',
         'UPDATE',
         'ERROR',
-        `Erreur lors de la mise à jour de l'effet avec l'ID ${id}: ${error}`
+        `Erreur lors de la mise à jour de l'effet avec l'ID ${id}: ${String(error)}`
       );
       throw new Error(
         `Erreur lors de la mise à jour de l'effet avec l'ID ${id}`
@@ -159,7 +157,7 @@ class EffectService {
         'EFFECT',
         'REMOVE',
         'ERROR',
-        `Erreur lors de la suppression de l'effet avec l'ID ${id}: ${error}`
+        `Erreur lors de la suppression de l'effet avec l'ID ${id}: ${String(error)}`
       );
       throw new Error(
         `Erreur lors de la suppression de l'effet avec l'ID ${id}`
