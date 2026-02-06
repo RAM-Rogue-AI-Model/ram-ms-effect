@@ -10,11 +10,14 @@ CREATE TABLE `Effet` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440000', 'pv', 20, '+', 1);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440001', 'attack', 5, '+', 2);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440002', 'speed', 5, '-', 2);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440003', 'speed', 15, '+', 2);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440004', 'attack', 50, '+', 2);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440005', 'attack', 10, '-', 3);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440006', 'speed', 10, '-', 3);
-INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440007', 'pv', 40, '+', 2);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440031', 'pv', 10, '+', 0);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440032', 'pv', 20, '+', 0);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440033', 'pv', 30, '+', 0);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440041', 'attack', 5, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440042', 'attack', 10, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440043', 'attack', 15, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440044', 'attack', 2, 'x', 1);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440051', 'speed', 5, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440052', 'speed', 10, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440053', 'speed', 15, '+', 3);
+INSERT INTO Effet (id, stat_name, count, modificator, duration) VALUES ('660e8400-e29b-41d4-a716-446655440054', 'speed', 2, 'x', 1);

@@ -10,20 +10,26 @@ import { EffectController } from './controllers/effectController';
 import { EffectRouter } from './routes/effectRouter';
 import { EffectService } from './services/effectService';
 import { config } from './utils/config';
+import cors from 'cors'
 
 const app = express();
 const port = config.PORT;
 
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: [config.API_GATEWAY_URL],
+    credentials: true,
+  })
+);
+
 const effectService = new EffectService();
 const effectController = new EffectController(effectService);
-
-app.use('/effect', new EffectRouter(effectController).router);
-
 const file = fs.readFileSync('./openapi.yml', 'utf8');
 const swaggerDocument = YAML.parse(file) as object;
 
+app.use('/effect', new EffectRouter(effectController).router);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {

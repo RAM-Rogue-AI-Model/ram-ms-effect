@@ -36,6 +36,7 @@ class EffectController {
 
   async getById(req: Request, res: Response) {
     const id: string = req.params.id as string;
+    console.log(id)
     if (!id) {
       return res.status(400).json({ error: 'Missing effect id' });
     }
